@@ -1,0 +1,17 @@
+%{
+#include <stdio.h>
+%}
+
+%%
+"word_to_replace"   { printf("replacement_word "); }
+.                   { printf("%s", yytext); }
+%%
+
+int yywrap() {
+    return 1;
+}
+
+int main() {
+    yylex();
+    return 0;
+}
